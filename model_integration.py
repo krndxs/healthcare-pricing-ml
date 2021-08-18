@@ -23,16 +23,11 @@ class HospitalPricingClassifier(BaseEstimator, ClassifierMixin):
 
     def __init__(self,
                  HospitalLocPath='hospital_model3',
-                 PricesPath='prices_clean3',
+                 PricesPath='pickle_prices',
                  threshold=100):
-        if not Path('hospital_model3').is_file():
-            HospitalLocPath = wget.download('https://www.dropbox.com/s/o7o7g22axysmgj2/hospital_model3?dl=1')
-    
-        if not Path('prices_clean3').is_file():
-            PricesPath = wget.download('https://www.dropbox.com/s/222q52i8mcd8as6/prices_clean3?dl=1')
             
         self.hospital_loc = pd.read_parquet(HospitalLocPath)
-        self.prices = pd.read_parquet(PricesPath)
+        self.prices = pd.read_pickle(PricesPath)
 
     def _get_distance(self,p_lat, p_lng, threshold=100):
 
