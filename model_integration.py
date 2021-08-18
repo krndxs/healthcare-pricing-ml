@@ -4,7 +4,7 @@ from os import system
 from pandas.core.algorithms import mode
 from pandas.core.frame import DataFrame
 import streamlit as st
-import pickle 5
+import pickle5
 import pandas as pd
 import geocoder
 import numpy as np
